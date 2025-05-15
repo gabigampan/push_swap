@@ -6,7 +6,7 @@
 /*   By: fragamez <fragamez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 18:12:33 by fragamez          #+#    #+#             */
-/*   Updated: 2025/04/21 13:33:44 by fragamez         ###   ########.fr       */
+/*   Updated: 2025/05/15 17:54:05 by fragamez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ void	swap(t_stack **stack)
 	if (get_length(*stack) > 1)
 	{
 		first = *stack;
-		second = first -> next;
-		third = second -> next;
-		first -> previous = second;
-		first -> next = second -> next;
-		second -> previous = NULL;
-		second -> next = first;
-		third -> previous = first;
+		second = first->next;
+		third = second->next;
+		first->previous = second;
+		first->next = second->next;
+		second->previous = NULL;
+		second->next = first;
+		if (third)
+			third->previous = first;
 		*stack = second;
 	}
 }
